@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bj1877dsiwrq"]
+
+[ext_resource type="PackedScene" uid="uid://cxdnvmiyv6frd" path="res://Scenes/FigFrogPlayer.tscn" id="1_5on7a"]
+[ext_resource type="PackedScene" uid="uid://2m8vrgjbybby" path="res://Scenes/lamp_post.tscn" id="2_7hw4x"]
+[ext_resource type="PackedScene" uid="uid://cjoshjpjwt4ww" path="res://Scenes/SpeedBoost.tscn" id="3_cipwc"]
+[ext_resource type="PackedScene" uid="uid://cd4hlhbtt4q8h" path="res://Scenes/car.tscn" id="4_tdnj8"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2y2r1"]
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vw2o5"]
+albedo_color = Color(0, 0.406334, 0.121814, 1)
+subsurf_scatter_strength = 0.37
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ta1tl"]
+size = Vector2(200, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xkae"]
+albedo_color = Color(0.162066, 0.162066, 0.162066, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_2y2r1")
+surface_material_override/0 = SubResource("StandardMaterial3D_vw2o5")
+
+[node name="Node3D" parent="." instance=ExtResource("1_5on7a")]
+
+[node name="LampPost2" parent="." instance=ExtResource("2_7hw4x")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 3, 0, -10)
+
+[node name="LampPost4" parent="." instance=ExtResource("2_7hw4x")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -12, 0, -10)
+
+[node name="LampPost3" parent="." instance=ExtResource("2_7hw4x")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 18, 0, -10)
+
+[node name="Node3D2" parent="." instance=ExtResource("3_cipwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19256, 0, 6.69811)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.261)
+mesh = SubResource("PlaneMesh_ta1tl")
+surface_material_override/0 = SubResource("StandardMaterial3D_3xkae")
+
+[node name="Car" parent="." instance=ExtResource("4_tdnj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4407, 0, -2.21012)
+
+[node name="Car2" parent="." instance=ExtResource("4_tdnj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8823, 0, -2.41731)
+
+[node name="Car3" parent="." instance=ExtResource("4_tdnj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.94552, 0, -3.66051)

@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://cd4hlhbtt4q8h"]
+
+[ext_resource type="Script" path="res://Scenes/car.gd" id="1_867ha"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yle34"]
+size = Vector3(1.5, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djo8u"]
+albedo_color = Color(1, 0.411765, 0.380392, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_26tek"]
+size = Vector3(2.5, 0.5, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_jr4bu"]
+size = Vector3(1.05, 0.5, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iwijo"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhvoc"]
+albedo_color = Color(0.305882, 0.32549, 0.34902, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oixtg"]
+size = Vector3(2.5, 1.5, 1)
+
+[node name="Car" type="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+script = ExtResource("1_867ha")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.911438, 0)
+mesh = SubResource("BoxMesh_yle34")
+surface_material_override/0 = SubResource("StandardMaterial3D_djo8u")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.661438, 0)
+mesh = SubResource("BoxMesh_26tek")
+surface_material_override/0 = SubResource("StandardMaterial3D_djo8u")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.16144, 0)
+mesh = SubResource("PrismMesh_jr4bu")
+surface_material_override/0 = SubResource("StandardMaterial3D_djo8u")
+
+[node name="Wheels" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, 0.2, 0.4)
+mesh = SubResource("CylinderMesh_iwijo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uhvoc")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, 0.2, -0.4)
+mesh = SubResource("CylinderMesh_iwijo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uhvoc")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.2, 0.4)
+mesh = SubResource("CylinderMesh_iwijo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uhvoc")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.2, -0.4)
+mesh = SubResource("CylinderMesh_iwijo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uhvoc")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.75, 0)
+shape = SubResource("BoxShape3D_oixtg")

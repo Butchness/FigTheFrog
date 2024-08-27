@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjoshjpjwt4ww"]
+
+[ext_resource type="Script" path="res://Scenes/SpeedBoost.gd" id="1_4cb0h"]
+[ext_resource type="Texture2D" uid="uid://bq750lxjuxipw" path="res://Sprites/SpeedBoost.png" id="1_crngj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wjdwo"]
+radius = 1.0
+height = 2.5
+
+[node name="Node3D" type="Node3D" groups=["SpeedBoost"]]
+script = ExtResource("1_4cb0h")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66, 0)
+pixel_size = 0.1
+texture = ExtResource("1_crngj")
+
+[node name="Area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000355005, 1.49494, 0.0101466)
+shape = SubResource("CapsuleShape3D_wjdwo")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

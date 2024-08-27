@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bftitfm8qec7q"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fi6av"]
+radius = 3.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41jx6"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -5.0
+angle_max = 5.0
+spread = 60.0
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 1, 0)
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwtgs"]
+albedo_color = Color(1, 0.239216, 0.341176, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lrwhb"]
+material = SubResource("StandardMaterial3D_mwtgs")
+size = Vector3(0.4, 0.4, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmjib"]
+render_priority = 1
+albedo_color = Color(0.733333, 0.360784, 0.133333, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_55pj1"]
+material = SubResource("StandardMaterial3D_cmjib")
+size = Vector3(0.4, 0.4, 0.2)
+
+[node name="Node3D" type="Area3D" groups=["Fire"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_fi6av")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_41jx6")
+draw_passes = 2
+draw_pass_1 = SubResource("BoxMesh_lrwhb")
+draw_pass_2 = SubResource("BoxMesh_55pj1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 2.0
+light_size = 1.0
+shadow_enabled = true
+omni_range = 10.0

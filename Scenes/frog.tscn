@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://vtbmf474is8g"]
+
+[ext_resource type="PackedScene" uid="uid://b7mtt15v3rdho" path="res://low-poly-animated-frog/Frog.glb" id="1_7lpf4"]
+[ext_resource type="Script" path="res://Scenes/frog.gd" id="2_trqvs"]
+
+[node name="Frog" instance=ExtResource("1_7lpf4")]
+script = ExtResource("2_trqvs")
+
+[node name="Skeleton3D" parent="Armature_003" index="0"]
+bones/0/rotation = Quaternion(0.199319, -0.0694618, 0.327213, 0.921075)
+bones/1/rotation = Quaternion(-0.573746, 0.307981, -0.330434, 0.683211)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(0.514204, 0.0104713, 0.0149924, 0.857473)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/rotation = Quaternion(-0.697837, 0.114119, -0.114119, 0.697837)
+bones/4/rotation = Quaternion(0.986369, -0.000909871, 0.164449, 0.0056744)
+bones/5/rotation = Quaternion(0.986216, 0.0029305, 0.164423, -0.018276)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(0.958202, -0.000389253, 0.285866, 0.0113548)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.116812, 0.697392, 0.116812, 0.697392)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(5.20046e-11, -6.84757e-08, -0.00151505, 0.999999)
+bones/9/rotation = Quaternion(1.87761e-08, 1.0731e-07, 0.778385, 0.627787)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.483951, 0.515549, -0.483951, 0.515549)
+bones/11/rotation = Quaternion(3.57266e-07, -1.37544e-09, 0.999501, 0.0315981)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.106615, 0.0263479, -0.403768, 0.908246)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(-0.679776, -0.338631, 0.360127, 0.541795)
+bones/14/rotation = Quaternion(0.507989, -0.0380429, 0.0328848, 0.859894)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.702079, -2.65219e-08, -0.117699, 0.702305)
+bones/16/rotation = Quaternion(0.0242546, 8.35241e-09, -0.000150579, 0.999706)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(-0.691133, -0.114169, 0.111952, 0.704817)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.95848, 0.000693123, -0.284375, 0.0211513)
+bones/19/rotation = Quaternion(0.085676, -0.701897, -0.0856757, 0.701897)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(1.71169e-09, 6.66283e-08, 0.209224, 0.977868)
+bones/21/rotation = Quaternion(1.87762e-08, -1.0731e-07, -0.778385, 0.627788)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/rotation = Quaternion(0.604483, 0.513295, -0.380044, -0.476124)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(0.5, -0.5, -0.5, 0.5)
+bones/25/rotation = Quaternion(0.705869, 0.708003, -0.0109094, -0.0190064)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(0.70642, 0.707494, -0.0187725, -0.00842685)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.697056, 0.716883, -0.0126312, 0.00570679)
+bones/28/rotation = Quaternion(-0.703647, 0.710529, 0.0026887, -0.00471199)
+bones/28/scale = Vector3(1, 0.999999, 1)
+bones/29/rotation = Quaternion(-0.59735, -0.0593318, -0.0443827, 0.798551)
+bones/29/scale = Vector3(1, 1, 1)
+
+[node name="AnimationPlayer" parent="." index="1"]
+speed_scale = 6.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

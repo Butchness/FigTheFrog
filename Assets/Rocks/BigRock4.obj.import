@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dwoyi0uw2tfub"
+path="res://.godot/imported/BigRock4.obj-6ac0b8617ae3e1747a0f343029cc3876.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BigRock4.obj-6ac0b8617ae3e1747a0f343029cc3876.mesh"]
+
+source_file="res://Assets/Rocks/BigRock4.obj"
+dest_files=["res://.godot/imported/BigRock4.obj-6ac0b8617ae3e1747a0f343029cc3876.mesh", "res://.godot/imported/BigRock4.obj-6ac0b8617ae3e1747a0f343029cc3876.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://baupc56pj7wla"]
+
+[ext_resource type="ArrayMesh" uid="uid://wioukbvg8wc1" path="res://Assets/Lilypad.obj" id="1_b33ja"]
+[ext_resource type="Script" path="res://Scenes/lilli_pad.gd" id="1_h4elg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ahaw"]
+size = Vector3(4, 2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sq45y"]
+size = Vector3(4.5, 2, 4.5)
+
+[node name="LilliPad" type="CharacterBody3D" groups=["Lili"]]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+script = ExtResource("1_h4elg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_b33ja")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("BoxShape3D_0ahaw")
+disabled = true
+
+[node name="SafeZone" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SafeZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("BoxShape3D_sq45y")

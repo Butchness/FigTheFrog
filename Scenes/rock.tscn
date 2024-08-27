@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://8mb0kgcmyrcn"]
+
+[ext_resource type="Script" path="res://Scenes/rock.gd" id="1_v2n1b"]
+[ext_resource type="ArrayMesh" uid="uid://s5jpadp8ckq6" path="res://Assets/Rocks/BigRock3.obj" id="2_xhiqw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_20qql"]
+height = 1.0
+radius = 3.0
+
+[node name="Rock" type="Area3D" groups=["Rock"]]
+script = ExtResource("1_v2n1b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_20qql")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, -2.18557e-10, 0.005, 0, -0.005, -2.18557e-10, 0, 0.75, 0)
+mesh = ExtResource("2_xhiqw")

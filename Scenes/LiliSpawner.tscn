@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm331lvjhht17"]
+
+[ext_resource type="Script" path="res://Scenes/LiliSpawner.gd" id="1_8pdxc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtrde"]
+size = Vector3(3, 0.1, 3)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_8pdxc")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("BoxShape3D_vtrde")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

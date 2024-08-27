@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://2m8vrgjbybby"]
+
+[ext_resource type="Script" path="res://Scenes/lamp_post.gd" id="1_1051a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjd7b"]
+size = Vector3(0.5, 10, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eel0r"]
+albedo_color = Color(0.356863, 0.356863, 0.356863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nq8rp"]
+size = Vector3(5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85mdg"]
+albedo_color = Color(0.356863, 0.356863, 0.356863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6rxb7"]
+size = Vector3(2.5, 0.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu1bj"]
+albedo_color = Color(0.411765, 0.411765, 0.411765, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qeqyg"]
+height = 4.0
+radius = 1.0
+
+[node name="LampPost" type="Node3D"]
+script = ExtResource("1_1051a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("BoxMesh_hjd7b")
+surface_material_override/0 = SubResource("StandardMaterial3D_eel0r")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 10, 0)
+mesh = SubResource("BoxMesh_nq8rp")
+surface_material_override/0 = SubResource("StandardMaterial3D_85mdg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10.1, 0)
+mesh = SubResource("BoxMesh_6rxb7")
+surface_material_override/0 = SubResource("StandardMaterial3D_uu1bj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_qeqyg")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.05)
+light_energy = 20.0
+spot_range = 11.0
+spot_angle = 35.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
